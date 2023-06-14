@@ -1,7 +1,7 @@
 # Students List API
 ```
 ```
-## Get all created notes
+## Get all created students
 
 **GET** `/api/v1/students`
 
@@ -55,7 +55,7 @@ Response
 }
 ```
 ---
-## Delete any note
+## Delete any student
 
 **DELETE**`/api/v1/deletestudent`
 
@@ -82,7 +82,7 @@ Response
 }
 ```
 ---
-## Update any note
+## Update any student
 
 **PATCH**`/api/v1/patchstudent`
 
