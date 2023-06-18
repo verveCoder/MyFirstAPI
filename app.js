@@ -9,8 +9,8 @@ const db = new sql.Database('./database.db')
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-app.get('/api/v1/students',(_req,res) =>{
-    db.all('SELECT * FROM students;',(_error, notes) =>{
+app.get('/api/v1/students', (_req,res) =>{
+    db.all('SELECT * FROM students;',(_error, students) =>{
         res.send(students)
     })
 })
@@ -30,7 +30,7 @@ app.post('/api/v1/newstudent', (req, res) =>{
     const {yourgroup} = req.body
     const {age} = req.body
 
-    db.run('INSERT INTO notes (name,surname,age,group,image) VALUES (?,?,?,?,?)', [name,surname,image,yourgroup,age], (error) =>{
+    db.run('INSERT INTO students (name, surname, image, yourgroup, age) VALUES (?, ?, ?, ?, ?)', [name, surname, image, yourgroup, age], (error) =>{
         db.all('SELECT * FROM students WHERE id =(SELECT MAX(id) FROM students) ',(error,student) =>{
             res.send(student)
         })
